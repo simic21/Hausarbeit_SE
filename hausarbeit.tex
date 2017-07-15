@@ -65,7 +65,7 @@
 
 % Biblatex
 \usepackage[
-backend=bibtex,
+backend=biber,
 style=numeric,
 citestyle=authoryear-ibid,
 bibstyle=authoryear,
@@ -189,6 +189,7 @@ sortlocale=de]{biblatex}
 % Inhaltsverzeichnis
 %-----------------------------------
 \setcounter{page}{2}
+\newgeometry{a4paper, left=4cm, right=2cm, top=3cm, bottom=2cm}
 \tableofcontents
 \newpage
 

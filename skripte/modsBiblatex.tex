@@ -62,19 +62,16 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
 %% Definiert @Book Eintrag
 \DeclareBibliographyDriver{book}{%
   \printnames{author}%
-  \setunit*{\space (}%
-  \printfield{year}\setunit*{):\space}%
+  \setunit*{:\space}%
   \printfield{title}%
-  \setunit*{,\space}%
+  \setunit*{\space}%
   \printfield{edition}%
   \setunit*{\addcomma\space}%
   \printlist{publisher}%
   \newunit\newblockpunct
   \printlist{location}%
-  \setunit*{\space}%
-  \printfield{year}%
-  \setunit*{,\space}% 
-  \printfield{isbn}%
+  \setunit*{\addcomma\space}%
+  \printfield{year}
   \finentry}
 
 %% Definiert @Online Eintrag
