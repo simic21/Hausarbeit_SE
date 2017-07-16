@@ -220,13 +220,18 @@ sortlocale=de]{biblatex}
 \input{kapitel/fazit/fazit}
 
 %-----------------------------------
+% Interview
+%-----------------------------------
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{6}
+\input{kapitel/anhang/interview}
+
+%-----------------------------------
 % Literaturverzeichnis
 %-----------------------------------
 \newpage
 %\addcontentsline{toc}{section}{Literatur}
-
-\pagenumbering{Roman} %Zähler wieder römisch ausgeben
-\setcounter{page}{5}  %Zähler manuell hochsetzen
 
 %\printbibliography
 
@@ -235,10 +240,10 @@ sortlocale=de]{biblatex}
 % Dazu die Zeile (\printbibliography) auskommentieren und folgenden code verwenden:
 
 \printbibheading
-\printbibliography[type=article,heading=subbibliography,title={Zeitschriften}]
 \printbibliography[type=book,heading=subbibliography,title={Bücher}]
-\printbibliography[type=patent,heading=subbibliography,title={Patente}]
 \printbibliography[type=online,heading=subbibliography,title={Internet-Quellen}]
+\printbibliography[type=patent,heading=subbibliography,title={Persönliche Mitteilungen}]
+\printbibliography[type=article,heading=subbibliography,title={Zeitschriften}]
 
 \input{kapitel/anhang/erklaerung}
 \end{document}

@@ -5,7 +5,7 @@ isbn=true,
 url=true, 
 doi=false, 
 eprint=false,
-maxbibnames=7, % Alle Autoren (kein et al.)
+maxbibnames=99, % Alle Autoren (kein et al.)
 maxcitenames=2, % et al. ab dem 3. Autor
 backref=false, % Rückverweise auf Zitatseiten
 bibencoding=utf8, % wenn .bib in utf8, sonst ascii
@@ -77,8 +77,12 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
 %% Definiert @Online Eintrag
 \DeclareBibliographyDriver{online}{%
   \printnames{author}%
-  \newunit\newblockpunct
+  \newblockpunct
   \printfield{title}%
+  \setunit*{,\space}%
+  \printfield{day}\setunit*{.}%
+  \printfield{month}\setunit*{.}%
+  \printfield{year}%
   \setunit*{,\space}%
   %\newunit\newblock
   \printfield{url}%
@@ -89,15 +93,15 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
 %% Definiert @Article Eintrag
 \DeclareBibliographyDriver{article}{%
   \printnames{author}%
-  \setunit*{\space (}%
-  \printfield{year}\setunit*{):\space}%
   \newblockpunct
   \printfield{title}%
   \setunit*{.\space In:\space}%
   %\newunit\newblock
   \usebibmacro{journal}%
+  \setunit*{,\space}%  
+  \printfield{year}  
   \setunit*{,\space}%
-  \printfield{volume}\newunit{ Jg.}%
+  \printfield{volume}\setunit*{ Jg.}%
   \setunit*{,\space Heft Nr.\space}%
   \printfield{number}%
   \setunit*{,\space}%
@@ -112,6 +116,11 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
   \printfield{note}%
   \usebibmacro{pageref}%
   \usebibmacro{finentry}}
+  
+%% Definiert @Patent Eintrag (wird für Interview ausgenutzt)
+\DeclareBibliographyDriver{patent}{%
+  \printfield{title}%
+  \finentry}
 
 %Doppelpunkt nach dem letzten Autor
 \renewcommand*{\labelnamepunct}{\addcolon\addspace }
