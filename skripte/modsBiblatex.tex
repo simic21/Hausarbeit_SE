@@ -54,7 +54,9 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
   {\usebibmacro{postnote}}
 
 %Autoren (Nachname, Vorname)
-\DeclareNameAlias{default}{family-given}
+%\DeclareNameAlias{default}{family-given} Hat nicht funktioniert bei mehr als 1 Autor
+
+\DeclareNameAlias{sortname}{last-first}
 
 %Reihenfolge von publisher, year, address verändern
 % Achtung, bisher nur für den Typ @book definiert
@@ -77,23 +79,23 @@ bibwarn=true, % Warnung bei fehlerhafter bib-Datei
 %% Definiert @Online Eintrag
 \DeclareBibliographyDriver{online}{%
   \printnames{author}%
-  \newblockpunct
+  \setunit*{:\space}%
   \printfield{title}%
   \setunit*{,\space}%
-  \printfield{day}\setunit*{.}%
-  \printfield{month}\setunit*{.}%
+  \printfield{publisher}%
   \printfield{year}%
   \setunit*{,\space}%
   %\newunit\newblock
   \printfield{url}%
-  \setunit*{,\space}%
+  \setunit*{\space (}%
   \printfield{note}%
+  \newunit{)}%  
   \finentry}
   
 %% Definiert @Article Eintrag
 \DeclareBibliographyDriver{article}{%
   \printnames{author}%
-  \newblockpunct
+  \setunit*{:\space}%
   \printfield{title}%
   \setunit*{.\space In:\space}%
   %\newunit\newblock

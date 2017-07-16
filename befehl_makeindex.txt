@@ -1,1 +1,0 @@
-makeindex thesis_main.nlo -s nomencl.ist -o thesis_main.nls

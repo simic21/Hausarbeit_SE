@@ -1,0 +1,1 @@
+makeindex hausarbeit.nlo -s nomencl.ist -o hausarbeit.nls
